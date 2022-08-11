@@ -1,9 +1,10 @@
-import { Button } from '@mui/material'
+import { Box, Button } from '@mui/material'
 import React from 'react'
-import { UnloggedNav } from './UnloggedNav'
+import { UnloggedNav } from '../components/UnloggedNav'
 import { getAuth, signInWithPopup } from "firebase/auth";
 import { provider } from '../config'
 import toast, { Toaster } from 'react-hot-toast';
+import drive from '../assets/drive.svg'
 
 export const Login = (props) => {
     const auth = getAuth();
@@ -20,7 +21,7 @@ export const Login = (props) => {
         <div className='login'>
             <Toaster />
             <UnloggedNav />
-            <div className="page" style={{ display: 'flex', flexDirection: 'row' }}>
+            <Box className="page" style={{ display: 'flex', flexDirection: 'row' }}>
                 <div className="left" style={{ width: '50%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                     <div className="somebigtext" style={{ width: '60%' }}>
                         <h1 style={{ marginBottom: '16px' }}> Easy and secure access to all of your content</h1>
@@ -29,9 +30,9 @@ export const Login = (props) => {
                     </div>
                 </div>
                 <div className="right" style={{ width: '50%' }}>
-                    <img style={{ width: '85%', marginTop: "6vh" }} src="https://lh3.googleusercontent.com/vq6ZjR72IcEKRh3QtkVrf2BXsZIOgljo8yGevO2rSVtl3mSxSDKvWfFAGxMxCYbPLGiovGk-gk0kA2csKSPHQKog-zTmNjRtmh6VkA=s0" alt="" />
+                    <img style={{ width: '85%', }} src={drive} alt="" />
                 </div>
-            </div>
+            </Box>
         </div>
     )
 }
