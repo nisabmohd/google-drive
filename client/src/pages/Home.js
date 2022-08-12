@@ -18,7 +18,6 @@ export const Home = () => {
   let [searchParams] = useSearchParams();
   useEffect(() => {
     const { page } = params
-    context.setLoading(true)
     if (page === 'mydrive') {
       sethome(true)
       const urlquery = searchParams.get('folderid')

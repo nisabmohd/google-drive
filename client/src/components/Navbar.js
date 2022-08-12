@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { } from 'react'
 import logo from '../assets/logo.png'
 import Avatar from '@mui/material/Avatar';
 // import AppsIcon from '@mui/icons-material/Apps';
@@ -8,11 +8,9 @@ import MenuItem from '@mui/material/MenuItem';
 import { Box, LinearProgress } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-import { AppContext } from '../App'
 
 
 export const Navbar = (props) => {
-    const context = useContext(AppContext)
 
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
@@ -86,7 +84,7 @@ export const Navbar = (props) => {
             </div>
         </Box>
         {
-            // (context.loading===true) &&  <LinearProgress sx={{ height: '1.9px' }} />
+            props.loading?<><LinearProgress sx={{ height: '1.9px' }} /></>:<></>
         }
     </>
     )

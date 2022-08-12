@@ -65,7 +65,7 @@ export const Leftbar = () => {
                 </label>
             </Menu>
             <Dialog fullWidth open={openDialog} onClose={handleCloseDialog}>
-                <DialogTitle sx={{ fontFamily: 'Comic Neue' }}><h5 style={{ fontFamily: 'Comic Neue' }}>New Folder</h5></DialogTitle>
+                <DialogTitle sx={{ fontFamily: 'Comic Neue' }}><p style={{ fontFamily: 'Comic Neue' }}>New Folder</p></DialogTitle>
                 <DialogContent>
                     <DialogContentText></DialogContentText>
                     <TextField

@@ -124,7 +124,7 @@ function App() {
                 <div className="App">
                   {
                     (auth) ?
-                      (<><Navbar photo={auth.photoURL} setAuth={setAuth} handleDark={handleDark} />
+                      (<><Navbar loading={loading} photo={auth.photoURL} setAuth={setAuth} handleDark={handleDark} />
                         <div className="app" style={{ display: 'flex', flexDirection: 'row' }}>
                           <Leftbar />
                           <Home auth={auth} />
