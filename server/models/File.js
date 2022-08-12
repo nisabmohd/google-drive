@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const FileSchema = new mongoose.Schema({
-    name: {
+    filename: {
         type: String,
         required: true
     },
@@ -10,20 +10,31 @@ const FileSchema = new mongoose.Schema({
         unique: true,
         required: true
     },
-    date: {
-        type: Date,
-        default: Date.now()
-    },
     filetype: {
-        type: String
+        type: String,
+        required:true
     },
-    storage: {
+    storageLink: {
         type: String,
         required: true
     },
     uid: {
         type: String
+    },
+    starred: {
+        type: Boolean,
+        default: false
+    },
+    trash: {
+        type: Boolean,
+        default: false
+    },
+    timstamp: {
+        type: Date,
+        default: Date.now()
     }
 })
 
-export const FileModel = new mongoose.model('Files', FileSchema)
+const FileModel = new mongoose.model('Files', FileSchema)
+
+module.exports={FileModel}

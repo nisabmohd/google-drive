@@ -12,7 +12,9 @@ const UserSchema=new mongoose.Schema({
     mainFolder:{
         type:String,
         unique:true
-    }
+    },
 })
 
-export const UserModel=new mongoose.model('Users',UserSchema)
+const UserModel=new mongoose.model('Users',UserSchema)
+
+module.exports={UserModel}
