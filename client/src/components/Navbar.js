@@ -72,8 +72,9 @@ export const Navbar = (props) => {
                         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                     >
-                        <MenuItem sx={{fontFamily:'Comic Neue',fontSize:'13px',fontWeight:'bold'}} onClick={() => { props.setAuth(null); localStorage.removeItem('authuser') }}><LogoutIcon sx={{fontSize:'16px',marginRight:'6px'}}/>Logout</MenuItem>
                         <MenuItem onClick={()=>props.handleDark()} sx={{fontFamily:'Comic Neue',fontSize:'13px',fontWeight:'bold'}} ><Brightness4Icon sx={{fontSize:'16px',marginRight:'6px'}}/>Toggle Dark</MenuItem>
+                        <MenuItem sx={{fontFamily:'Comic Neue',fontSize:'13px',fontWeight:'bold'}} onClick={() => { props.setAuth(null); localStorage.removeItem('authuser') }}><LogoutIcon sx={{fontSize:'16px',marginRight:'6px'}}/>Logout</MenuItem>
+                        
                     </Menu>
                 </div>
             </div>
