@@ -78,7 +78,7 @@ router.get('/recent/:uid', async (req, res) => {
     const { uid } = req.params;
     const recent = await FileModel.find({ uid: uid, trash: { $ne: true } })
     recent.sort((a,b)=>{
-        Date.parse(b.timstamp)-Date.parse(a.timstamp)
+      -1*(Date.parse(b)-Date.parse(a))
     })
     res.send(recent)
 })

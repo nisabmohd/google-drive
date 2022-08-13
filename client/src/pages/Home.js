@@ -51,7 +51,7 @@ export const Home = () => {
       <div className="files">
         {
           (home && folders && folders.length !== 0) ?
-            <h5 style={{ marginBottom: '5px', marginTop: '35px' }}>Folders</h5> : <></>
+            <p style={{ marginBottom: '5px', marginTop: '35px',fontSize:'14px' }}>Folders</p> : <></>
         }
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '9px' }}>
           {
@@ -64,7 +64,7 @@ export const Home = () => {
       <div className="files">
         {
           files.length !== 0 ?
-            <h5 style={{ marginBottom: '5px', marginTop: '35px' }}>Files</h5> : <></>
+            <p style={{ marginBottom: '5px', marginTop: '35px',fontSize:'14px'  }}>Files</p> : <></>
         }
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '-15px' }}>
           {
@@ -74,14 +74,17 @@ export const Home = () => {
                 name={item.filename}
                 img={item.storageLink}
                 id={item.fileid}
-                link={item.storageLink} />
+                link={item.storageLink}
+                type={item.filetype}
+                />
+                
             })
           }
         </div>
       </div>
       {
         (!files && !folders) ?
-          <h4 style={{ margin: 'auto', width: 'fit-content', marginTop: '5vh' }}>Nothing to see here</h4> : <></>
+          <p style={{ margin: 'auto', width: 'fit-content', marginTop: '5vh' }}>Nothing to see here</p> : <></>
       }
 
     </div>

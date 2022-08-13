@@ -43,7 +43,7 @@ export const Leftbar = () => {
     }
     return (
         <div className='leftbar' style={{ width: '13%' }}>
-            <button onClick={handleClick} style={{ width: '45%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><AddIcon style={{  width: '27px', height: '25px',marginRight: '6px', marginLeft: '-9px' }} /><h4>New</h4></button>
+            <button onClick={handleClick} style={{ width: '45%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><AddIcon style={{  width: '27px', height: '25px',marginRight: '6px', marginLeft: '-9px' }} /><p>New</p></button>
             <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
@@ -56,20 +56,20 @@ export const Leftbar = () => {
                 <MenuItem sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', fontFamily: 'Comic Neue' }}
                     onClick={() => { handleClickOpenDialog(); handleClose() }}
 
-                ><CreateNewFolderIcon style={{ width: '19px', height: '19px', marginRight: '15px' }} /><h5>New Folder</h5></MenuItem>
+                ><CreateNewFolderIcon style={{width: '21px', height: '20px',marginRight: '15px' }} /><p>New Folder</p></MenuItem>
                 <input type="file" id="fileup" onChange={(e) => { e.preventDefault(); handleUpdate(e) }} hidden />
                 <label htmlFor="fileup">
                     <MenuItem sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', fontFamily: 'Comic Neue' }} >
-                        <UploadFileIcon style={{ width: '19px', height: '19px', marginRight: '15px' }} /><h5>File Upload</h5>
+                        <UploadFileIcon style={{ width: '21px', height: '20px',marginRight: '15px' }} /><p>File Upload</p>
                     </MenuItem>
                 </label>
             </Menu>
             <Dialog fullWidth open={openDialog} onClose={handleCloseDialog}>
-                <DialogTitle sx={{ fontFamily: 'Comic Neue' }}><p style={{ fontFamily: 'Comic Neue' }}>New Folder</p></DialogTitle>
+                <DialogTitle sx={{ fontFamily: 'Roboto' }}><p style={{ fontFamily: 'Roboto' }}>New Folder</p></DialogTitle>
                 <DialogContent>
                     <DialogContentText></DialogContentText>
                     <TextField
-                        InputProps={{ style: { fontSize: 13.9, fontFamily: 'Comic Neue', fontWeight: 'bold' } }}
+                        InputProps={{ style: { fontSize: 13.9, fontFamily: 'Roboto'} }}
                         autoFocus
                         margin="dense"
                         id="name"
@@ -83,8 +83,8 @@ export const Leftbar = () => {
                 </DialogContent>
                 <DialogActions>
 
-                    <button onClick={handleCloseDialog} style={{ width: '18%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><h4>Cancel</h4></button>
-                    <button onClick={fileCreateHandle} style={{ width: '18%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit', marginRight: '9px' }}><h4>Create</h4></button>
+                    <button onClick={handleCloseDialog} style={{ width: '18%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><p>Cancel</p></button>
+                    <button onClick={fileCreateHandle} style={{ width: '18%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit', marginRight: '9px' }}><p>Create</p></button>
 
                     {/* <Button sx={{ fontFamily: 'Comic Neue' }} onClick={handleCloseDialog}><h5>Cancel</h5></Button>
                     <Button sx={{ fontFamily: 'Comic Neue' }} onClick={fileCreateHandle}><h5>Create</h5></Button> */}
@@ -96,7 +96,7 @@ export const Leftbar = () => {
                 }
                 style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '39px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit' }}>
                 <AddToDriveOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
-                <h5 >My Drive</h5>
+                <p>My Drive</p>
             </NavLink>
             <NavLink
                 className={({ isActive }) =>
@@ -104,7 +104,7 @@ export const Leftbar = () => {
                 }
                 to="/recent" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '39px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit' }}>
                 <AccessTimeOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
-                <h5>Recent</h5>
+                <p>Recent</p>
             </NavLink>
             <NavLink
                 className={({ isActive }) =>
@@ -112,7 +112,7 @@ export const Leftbar = () => {
                 }
                 to="/starred" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '39px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit' }}>
                 <StarBorderPurple500OutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
-                <h5>Starred</h5>
+                <p>Starred</p>
             </NavLink>
             <NavLink
                 className={({ isActive }) =>
@@ -120,7 +120,7 @@ export const Leftbar = () => {
                 }
                 to="/trash" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '39px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit' }}>
                 <DeleteOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
-                <h5>Trash</h5>
+                <p>Trash</p>
             </NavLink>
         </div>
     )

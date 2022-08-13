@@ -10,13 +10,13 @@ router.post('/auth', async (req, res) => {
         const ifUser = await UserModel.findOne({ uid: req.body.uid })
         if (!ifUser) {
             const folderiduid = folderId()
-            const newfolder= new FolderModel({
+            const newfolder = new FolderModel({
                 Folderid: folderiduid,
-                Name:'My Drive',
-                uid:req.body.uid
+                Name: 'My Drive',
+                uid: req.body.uid
             })
             await newfolder.save()
-            const newuser= new UserModel({
+            const newuser = new UserModel({
                 uid: req.body.uid,
                 image: req.body.img,
                 mainFolder: folderiduid
