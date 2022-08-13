@@ -13,6 +13,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import axios from 'axios'
 import { url } from './BaseUrl'
 import { ref, uploadBytesResumable, getDownloadURL, getStorage } from "firebase/storage";
+import { Redirect } from "./pages/Redirect";
 
 
 export const AppContext = React.createContext()
@@ -90,7 +91,7 @@ function App() {
   }
 
   const ContextValue = {
-    auth, mainFolder, setMainFolder, currentFolder, setCurrentFolder, newFolderCreate, fileUpload, loading, setLoading
+    auth, mainFolder, setMainFolder, currentFolder, setCurrentFolder, newFolderCreate, fileUpload, loading, setLoading,dark
   }
 
 
@@ -120,6 +121,11 @@ function App() {
         <CssBaseline>
           <AppContext.Provider value={ContextValue}>
             <Routes>
+            <Route path="/" element={
+                <div className="App">
+                  <Redirect/>
+                </div>}
+              />
               <Route path="/:page" element={
                 <div className="App">
                   {

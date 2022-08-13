@@ -1,4 +1,12 @@
 .tags:hover{
-    background-color: rgba(0, 0, 0, 0.12);
-    color:#dddddd
+    background-color:rgb(240, 245, 255) ;
+}
+.tagsdark:hover{
+    background-color: rgb(61,102,94);
+}
+.lightactive{
+    background-color:rgb(240, 245, 255) ;
+}
+.darkactive{
+    background-color: rgb(61,102,94);
 }

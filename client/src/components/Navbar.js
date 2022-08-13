@@ -1,4 +1,4 @@
-import React, { } from 'react'
+import React, { useContext } from 'react'
 import logo from '../assets/logo.png'
 import Avatar from '@mui/material/Avatar';
 // import AppsIcon from '@mui/icons-material/Apps';
@@ -8,10 +8,11 @@ import MenuItem from '@mui/material/MenuItem';
 import { Box, LinearProgress } from '@mui/material';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
-
+import { AppContext } from '../App';
+import '../css/Navbar.css'
 
 export const Navbar = (props) => {
-
+    const context = useContext(AppContext)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -24,7 +25,7 @@ export const Navbar = (props) => {
 
 
     return (<>
-        <Box className='navbar' sx={{ borderBottom: 1, borderColor: 'divider' }} style={{ width: '100%', display: "flex", flexDirection: 'row', alignItems: 'center', height: '72' }}>
+        <Box className='navbar' sx={{ borderBottom: 1, borderColor: 'divider' }} style={{ width: '100%', display: "flex", flexDirection: 'row', alignItems: 'center', height: '72', }}>
 
             <div className="left" style={{ width: '24%', }}>
                 <div className="logo" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '19px', marginBottom: '19px', cursor: 'pointer' }}>
@@ -33,8 +34,8 @@ export const Navbar = (props) => {
                 </div>
             </div>
             <div className="right" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '80%' }}>
-                <Box sx={{ bgcolor: 'divider' }} className="searchbar" style={{ width: '838px', display: 'flex', flexDirection: 'row', alignItems: 'center', height: '38px', borderRadius: '7px', color: 'inherit' }}>
-                    <input placeholder='Seach Drive' type="text" style={{ backgroundColor: 'transparent', border: 'none', outline: 'none', width: '93.8%', height: 'inherit', paddingLeft: '18px', color: 'inherit' }} />
+                <Box className="searchbar" style={{ width: '838px', display: 'flex', flexDirection: 'row', alignItems: 'center', height: '42px', borderRadius: '17px', color: 'inherit',backgroundColor:context.dark?'rgb(61,102,94)':'rgb(240, 245, 255)' }}>
+                    <input placeholder='Seach Drive' type="text" className={context.dark?'indark':''} style={{ backgroundColor: 'transparent', border: 'none', outline: 'none', width: '93.8%', height: 'inherit', paddingLeft: '18px', color: 'inherit',marginLeft:'1%' }} />
                     <SearchIcon style={{ width: '24px', height: '20px', cursor: 'pointer' }}></SearchIcon>
                 </Box>
                 <div className="user_settings" style={{ marginLeft: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', marginRight: '11px' }}>
