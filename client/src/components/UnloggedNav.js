@@ -6,7 +6,7 @@ export const UnloggedNav = () => {
             <div className="left" style={{ width: '24%', }}>
                 <div className="logo" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', marginTop: '19px', marginBottom: '19px', cursor: 'pointer' }}>
                     <img style={{ width: '25px', marginLeft: '9%', marginRight: '8.45px' }} src={logo} alt="" />
-                    <h3>Drive</h3>
+                    <p style={{fontSize:'17px'}}>Drive</p>
                 </div>
             </div>
         </div>
