@@ -61,19 +61,40 @@ p {
   .hidelogo {
     display: none;
   }
-  .left{
+
+  .left {
     max-width: 85px;
     margin-left: 15px;
     justify-content: center;
   }
-  
+
 }
+
 @media screen and (max-width:504px) {
   .grid {
     grid-template-columns: repeat(1, 1fr);
     align-content: center;
   }
-  .leftbar{
+
+  .leftbar {
     display: block;
+  }
+}
+
+.pagel {
+  display: flex;
+  flex-direction: row;
+  height: 80vh
+}
+
+@media screen and (max-width:639px) {
+  .pagel {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .smallpara{
+    display: none;
   }
 }

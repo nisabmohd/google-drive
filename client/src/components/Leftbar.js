@@ -83,8 +83,8 @@ export const Leftbar = () => {
                 </DialogContent>
                 <DialogActions>
 
-                    <button onClick={handleCloseDialog} style={{ width: '18%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><p>Cancel</p></button>
-                    <button onClick={fileCreateHandle} style={{ width: '18%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit', marginRight: '9px' }}><p>Create</p></button>
+                    <button onClick={handleCloseDialog} style={{ width: '18%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgba(255, 255, 255, 0.5)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><p>Cancel</p></button>
+                    <button onClick={fileCreateHandle} style={{ width: '18%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgba(255, 255, 255, 0.5)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit', marginRight: '9px' }}><p>Create</p></button>
 
                     {/* <Button sx={{ fontFamily: 'Comic Neue' }} onClick={handleCloseDialog}><h5>Cancel</h5></Button>
                     <Button sx={{ fontFamily: 'Comic Neue' }} onClick={fileCreateHandle}><h5>Create</h5></Button> */}
@@ -94,7 +94,7 @@ export const Leftbar = () => {
                 className={({ isActive }) =>
                     isActive ? context.dark ? "tagsdark darkactive" : "tags lightactive" : context.dark ? "tagsdark" : "tags"
                 }
-                style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
+                style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '3px 25px 25px 3px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
                 <AddToDriveOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
                 My Drive
             </NavLink>
@@ -102,7 +102,7 @@ export const Leftbar = () => {
                 className={({ isActive }) =>
                     isActive ? context.dark ? "tagsdark darkactive" : "tags lightactive" : context.dark ? "tagsdark" : "tags"
                 }
-                to="/recent" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
+                to="/recent" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '3px 25px 25px 3px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
                 <AccessTimeOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
                 Recent
             </NavLink>
@@ -110,7 +110,7 @@ export const Leftbar = () => {
                 className={({ isActive }) =>
                     isActive ? context.dark ? "tagsdark darkactive" : "tags lightactive" : context.dark ? "tagsdark" : "tags"
                 }
-                to="/starred" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
+                to="/starred" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '3px 25px 25px 3px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
                 <StarBorderPurple500OutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
                 Starred
             </NavLink>
@@ -118,7 +118,7 @@ export const Leftbar = () => {
                 className={({ isActive }) =>
                     isActive ? context.dark ? "tagsdark darkactive" : "tags lightactive" : context.dark ? "tagsdark" : "tags"
                 }
-                to="/trash" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit',fontSize:'13px' }}>
+                to="/trash" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '3px 25px 25px 3px', textDecorationColor: 'none', color: 'inherit',fontSize:'13px' }}>
                 <DeleteOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px',fontSize:'12.5px' }} />
                 Trash
             </NavLink>

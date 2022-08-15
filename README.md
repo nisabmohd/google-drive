@@ -6,6 +6,8 @@
 - Dark Mode
 - Material 3 
 - Nested Complex Folder Structure
+- List and Grid View
+- Star and Trash your files
 
 ### Tech Used
 - ReactJS with MUI

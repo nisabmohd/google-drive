@@ -26,14 +26,14 @@ export const ListFile = (props) => {
 
     useEffect(() => {
         setIsStar(props.star)
-      }, [props.star])
-      
-      const handleClick = (event) => {
+    }, [props.star])
+
+    const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
-      };
-      const handleClose = () => {
+    };
+    const handleClose = () => {
         setAnchorEl(null);
-      };
+    };
 
     const handleStar = () => {
         axios.put(`${url}/ff/starhandle`, {
@@ -97,7 +97,15 @@ export const ListFile = (props) => {
                 </TableCell>
                 </a>
                 <TableCell align="right" style={{ fontSize: '12px' }}><ReactTimeAgo date={Date.parse(props.timstamp)} locale="en-US" /></TableCell>
-                <TableCell align="right" style={{ fontSize: '12px' }}>{props.type.length>15?props.type.slice(0,15)+"...":props.type}</TableCell>
+                <TableCell align="right" style={{ fontSize: '12px' }}>
+                    
+                    {
+                        (props.type === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet') ?
+                            "application/xls" : <>{props.type}</>
+
+                    }
+
+                </TableCell>
                 <TableCell align="right" style={{ fontSize: '12px' }}><MoreVertIcon onClick={handleClick} style={{ width: '20px', fontSize: '15px', marginBottom: '-6px', cursor: 'pointer' }} />
                     <Menu
                         id="basic-menu"
