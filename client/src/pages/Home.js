@@ -26,7 +26,7 @@ export const Home = () => {
         .then(function (response) {
           setFiles(response.data.files)
           setFolders(response.data.folders)
-
+          console.log(response.data);
         })
         .catch(function (error) {
           console.log(error);
@@ -44,47 +44,56 @@ export const Home = () => {
 
   }, [context, context.auth.uid, context.mainFolder, params, searchParams])
 
+  const handleRemoveFileCard = (fileid) => {
+    setFiles(files.filter(item => item.fileid !== fileid));
+  }
 
   return (
     <div className="home" style={{ width: '100%', marginLeft: '2vw' }}>
       <Selection value={params.page} />
-      <div className="files">
-        {
-          (home && folders && folders.length !== 0) ?
-            <p style={{ marginBottom: '5px', marginTop: '35px',fontSize:'14px' }}>Folders</p> : <></>
-        }
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '9px' }}>
+      <div className="grid">
+
+        <div className="files">
           {
-            home && folders && folders.map((item) => {
-              return <Folderc key={item._id} name={item.Name} id={item.Folderid} />
-            })
+            (home && folders && folders.length !== 0) ?
+              <p style={{ marginBottom: '5px', marginTop: '35px', fontSize: '14px' }}>Folders</p> : <></>
           }
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '9px' }}>
+            {
+              home && folders && folders.map((item) => {
+                return <Folderc key={item._id} name={item.Name} id={item.Folderid} />
+              })
+            }
+          </div>
         </div>
-      </div>
-      <div className="files">
-        {
-          files.length !== 0 ?
-            <p style={{ marginBottom: '5px', marginTop: '35px',fontSize:'14px'  }}>Files</p> : <></>
-        }
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '-15px' }}>
+        <div className="files">
           {
-            files?.map(item => {
-              return <Cardc
-                key={item._id}
-                name={item.filename}
-                img={item.storageLink}
-                id={item.fileid}
-                link={item.storageLink}
-                type={item.filetype}
-                />
-                
-            })
+            files?.length !== 0 ?
+              <p style={{ marginBottom: '5px', marginTop: '35px', fontSize: '14px' }}>Files</p> : <></>
           }
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '-15px' }}>
+            {
+              (files && files.length !== 0) ? files.map(item => {
+                return item !== null ?
+                  <Cardc
+                    key={item.fileid}
+                    name={item.filename}
+                    img={item.storageLink}
+                    id={item.fileid}
+                    link={item.storageLink}
+                    type={item.filetype}
+                    star={item.starred}
+                    trash={item.trash}
+                    handleRemoveFileCard={handleRemoveFileCard}
+                  /> : <></>
+              }) : <></>
+            }
+          </div>
         </div>
       </div>
       {
-        (!files && !folders) ?
-          <p style={{ margin: 'auto', width: 'fit-content', marginTop: '5vh' }}>Nothing to see here</p> : <></>
+        (files?.length === 0 && folders?.length === 0) ?
+          <p style={{ margin: 'auto', width: 'fit-content', marginTop: '5vh', fontSize: '16px' }}>Nothing to see here</p> : <></>
       }
 
     </div>

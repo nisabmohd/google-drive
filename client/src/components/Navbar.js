@@ -34,13 +34,13 @@ export const Navbar = (props) => {
                 </div>
             </div>
             <div className="right" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '80%' }}>
-                <Box className="searchbar" style={{ width: '838px', display: 'flex', flexDirection: 'row', alignItems: 'center', height: '42px', borderRadius: '17px', color: 'inherit',backgroundColor:context.dark?'rgb(61,102,94)':'rgb(240, 245, 255)' }}>
-                    <input placeholder='Seach Drive' type="text" className={context.dark?'indark':''} style={{ backgroundColor: 'transparent', border: 'none', outline: 'none', width: '93.8%', height: 'inherit', paddingLeft: '18px', color: 'inherit',marginLeft:'1%' }} />
-                    <SearchIcon style={{ width: '24px', height: '20px', cursor: 'pointer' }}></SearchIcon>
+                <Box className="searchbar" style={{ width: '838px', display: 'flex', flexDirection: 'row', alignItems: 'center', height: '42px', borderRadius: '17px', color: 'inherit',backgroundColor:context.dark?'rgba(255, 255, 255, 0.5)':'rgba(0, 0, 0, 0.04)' }}>
+                    <input placeholder='Seach Drive' type="text" className={context.dark?'indark':''} style={{ backgroundColor: 'transparent', border: 'none', outline: 'none', width: '93.8%', height: 'inherit', paddingLeft: '18px', color: 'inherit',marginLeft:'1%',fontSize:'12px',fontWeight:'unset' }} />
+                    <SearchIcon style={{ width: '20px', height: '18px', cursor: 'pointer' }}></SearchIcon>
                 </Box>
                 <div className="user_settings" style={{ marginLeft: 'auto', display: 'flex', flexDirection: 'row', alignItems: 'center', marginRight: '11px' }}>
                     {/* <AppsIcon color="primary" style={{ width: '24px', height: '24px', marginLeft: '12px', marginRight: "9px", cursor: 'pointer' }}></AppsIcon> */}
-                    <Avatar src={props.photo} onClick={handleClick} style={{ width: '29px', height: '32px', marginLeft: '12px', marginRight: "9px", cursor: 'pointer' }} />
+                    <Avatar src={props.photo} onClick={handleClick} style={{ width: '29px', height: '30px', marginLeft: '12px', marginRight: "9px", cursor: 'pointer' }} />
                     <Menu
                         disableAutoFocusItem={false}
                         anchorEl={anchorEl}
@@ -77,8 +77,8 @@ export const Navbar = (props) => {
                         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                     >
-                        <MenuItem onClick={() => props.handleDark()} sx={{ fontFamily: 'Roboto'}} ><Brightness4Icon sx={{width: '20px', height: '19px', fontSize: '14px', marginRight: '6px' }} /><p>Toggle Dark</p></MenuItem>
-                        <MenuItem sx={{ fontFamily: 'Roboto', fontSize: '13px' }} onClick={() => { props.setAuth(null); localStorage.removeItem('authuser') }}><LogoutIcon sx={{width: '20px', height: '19px', marginRight: '6px' }} /><p>Logout</p></MenuItem>
+                        <MenuItem onClick={() => props.handleDark()} sx={{ fontFamily: 'Roboto Flex'}} ><Brightness4Icon sx={{width: '20px', height: '19px', fontSize: '14px', marginRight: '6px' }} /><p>Toggle Dark</p></MenuItem>
+                        <MenuItem sx={{ fontFamily: 'Roboto Flex', fontSize: '13px' }} onClick={() => { props.setAuth(null); localStorage.removeItem('authuser') }}><LogoutIcon sx={{width: '20px', height: '19px', marginRight: '6px' }} /><p>Logout</p></MenuItem>
 
                     </Menu>
                 </div>

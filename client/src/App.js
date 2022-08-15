@@ -39,7 +39,6 @@ function App() {
       uid: auth.uid
     })
       .then(function (response) {
-        console.log(response);
         setrender((prev) => !prev)
       })
       .catch(function (error) {
@@ -84,7 +83,6 @@ function App() {
             .catch(function (error) {
               console.log(error);
             });
-          console.log(downloadURL);
         });
       }
     );

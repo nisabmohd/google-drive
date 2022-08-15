@@ -43,7 +43,7 @@ export const Leftbar = () => {
     }
     return (
         <div className='leftbar' style={{ width: '13%' }}>
-            <button onClick={handleClick} style={{ width: '45%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><AddIcon style={{  width: '27px', height: '25px',marginRight: '6px', marginLeft: '-9px' }} /><p>New</p></button>
+            <button onClick={handleClick} style={{ width: '45%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgba(255, 255, 255, 0.5)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><AddIcon style={{  width: '27px', height: '25px',marginRight: '6px', marginLeft: '-9px' }} />New</button>
             <Menu
                 id="basic-menu"
                 anchorEl={anchorEl}
@@ -65,11 +65,11 @@ export const Leftbar = () => {
                 </label>
             </Menu>
             <Dialog fullWidth open={openDialog} onClose={handleCloseDialog}>
-                <DialogTitle sx={{ fontFamily: 'Roboto' }}><p style={{ fontFamily: 'Roboto' }}>New Folder</p></DialogTitle>
+                <DialogTitle sx={{ fontFamily: 'Roboto Flex' }}><p style={{ fontFamily: 'Roboto Flex' }}>New Folder</p></DialogTitle>
                 <DialogContent>
                     <DialogContentText></DialogContentText>
                     <TextField
-                        InputProps={{ style: { fontSize: 13.9, fontFamily: 'Roboto'} }}
+                        InputProps={{ style: { fontSize: 13.9, fontFamily: 'Roboto Flex'} }}
                         autoFocus
                         margin="dense"
                         id="name"
@@ -94,33 +94,33 @@ export const Leftbar = () => {
                 className={({ isActive }) =>
                     isActive ? context.dark ? "tagsdark darkactive" : "tags lightactive" : context.dark ? "tagsdark" : "tags"
                 }
-                style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '39px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit' }}>
+                style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
                 <AddToDriveOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
-                <p>My Drive</p>
+                My Drive
             </NavLink>
             <NavLink
                 className={({ isActive }) =>
                     isActive ? context.dark ? "tagsdark darkactive" : "tags lightactive" : context.dark ? "tagsdark" : "tags"
                 }
-                to="/recent" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '39px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit' }}>
+                to="/recent" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
                 <AccessTimeOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
-                <p>Recent</p>
+                Recent
             </NavLink>
             <NavLink
                 className={({ isActive }) =>
                     isActive ? context.dark ? "tagsdark darkactive" : "tags lightactive" : context.dark ? "tagsdark" : "tags"
                 }
-                to="/starred" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '39px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit' }}>
+                to="/starred" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit',fontSize:'12.5px' }}>
                 <StarBorderPurple500OutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
-                <p>Starred</p>
+                Starred
             </NavLink>
             <NavLink
                 className={({ isActive }) =>
                     isActive ? context.dark ? "tagsdark darkactive" : "tags lightactive" : context.dark ? "tagsdark" : "tags"
                 }
-                to="/trash" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '39px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit' }}>
-                <DeleteOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px' }} />
-                <p>Trash</p>
+                to="/trash" style={{ marginLeft: '22px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '7px', marginTop: '7px', textDecoration: 'none', height: '35px', paddingLeft: '9px', borderRadius: '7px 25px 25px 7px', textDecorationColor: 'none', color: 'inherit',fontSize:'13px' }}>
+                <DeleteOutlinedIcon style={{ width: '23px', height: '22px', marginRight: '15px',fontSize:'12.5px' }} />
+                Trash
             </NavLink>
         </div>
     )

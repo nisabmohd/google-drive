@@ -12,7 +12,7 @@ const FileSchema = new mongoose.Schema({
     },
     filetype: {
         type: String,
-        required:true
+        required: true
     },
     storageLink: {
         type: String,
@@ -32,9 +32,13 @@ const FileSchema = new mongoose.Schema({
     timstamp: {
         type: Date,
         default: Date.now()
+    },
+    parentFolder: {
+        type: String,
+        required: true
     }
 })
 
 const FileModel = new mongoose.model('Files', FileSchema)
 
-module.exports={FileModel}
+module.exports = { FileModel }

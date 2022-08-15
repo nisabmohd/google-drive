@@ -2,11 +2,13 @@
     background-color:rgb(240, 245, 255) ;
 }
 .tagsdark:hover{
-    background-color: rgb(61,102,94);
+    background-color: rgba(255, 255, 255, 0.5);
 }
 .lightactive{
     background-color:rgb(240, 245, 255) ;
+    /* font-weight: 800; */
 }
 .darkactive{
-    background-color: rgb(61,102,94);
+    background-color: rgba(255, 255, 255, 0.5);
+    /* font-weight: 800; */
 }

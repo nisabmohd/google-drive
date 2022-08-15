@@ -33,7 +33,8 @@ router.post('/addFile', async (req, res) => {
             fileid: newfileid,
             filetype: filetype,
             storageLink: storageLink,
-            uid: uid
+            uid: uid,
+            parentFolder: folderid
         })
         await newFile.save()
         await FolderModel.updateOne({ Folderid: folderid }, { $push: { Files: newfileid } })
@@ -56,8 +57,9 @@ router.get('/:folderid', async (req, res) => {
     }))
     let exploreFiles = []
     await Promise.all(Files.map(async (item) => {
-        const fexp = await FileModel.findOne({ fileid: item, trash: { $ne: true } })
-        exploreFiles.push(fexp)
+        const fexp = await FileModel.findOne({ fileid: item })
+        if (fexp.trash !== true)
+            exploreFiles.push(fexp)
     }))
     res.send({ folders: explorefolder, files: exploreFiles })
 })
@@ -77,10 +79,34 @@ router.get('/trash/:uid', async (req, res) => {
 router.get('/recent/:uid', async (req, res) => {
     const { uid } = req.params;
     const recent = await FileModel.find({ uid: uid, trash: { $ne: true } })
-    recent.sort((a,b)=>{
-      -1*(Date.parse(b)-Date.parse(a))
+    recent.sort((a, b) => {
+        -1 * (Date.parse(b) - Date.parse(a))
     })
     res.send(recent)
+})
+
+router.put('/starhandle', async (req, res) => {
+    const { fileid, uid } = req.body
+    const fileSearch = await FileModel.findOne({ fileid: fileid })
+    if (fileSearch.uid === uid) {
+        return res.send(await FileModel.updateOne({ fileid: fileid }, { starred: !fileSearch.starred }))
+    } else {
+        return res.status(401).send("Unauthorized")
+    }
+})
+
+router.put('/trashhandle', async (req, res) => {
+    const { fileid, uid } = req.body
+    const fileSearch = await FileModel.findOne({ fileid: fileid })
+    if (fileSearch.uid === uid) {
+        if (fileSearch.trash == true) {
+            await FileModel.deleteOne({ fileid: fileid })
+            await FolderModel.updateOne({ Folderid: fileSearch.parentFolder }, { $pull: { Files: fileid } })
+        }
+        return res.send(await FileModel.updateOne({ fileid: fileid }, { trash: true }))
+    } else {
+        return res.status(401).send("Unauthorized")
+    }
 })
 
 module.exports = router

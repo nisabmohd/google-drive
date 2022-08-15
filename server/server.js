@@ -9,7 +9,7 @@ app.use(require('cors')())
 app.use(express.json())
 
 mongoose.connect(process.env.mongouri).then(()=>{
-    console.log("COnnected to db");
+    console.log("Connected to db");
 }).catch(err=>{
     console.log(err);
 })
