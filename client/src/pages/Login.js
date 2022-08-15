@@ -37,7 +37,7 @@ export const Login = (props) => {
                     <div className="somebigtext" style={{ width: '60%' }}>
                         <p style={{ marginBottom: '16px',fontSize:'30px'  }}> Easy and secure access to all of your content</p>
                         <p style={{ marginBottom: '16px',fontSize:'17px' }}>Store, share, and collaborate on files and folders from any mobile device, tablet, or computer</p>
-                        <button onClick={loginfunc} style={{ width: '38%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgb(61,102,94)" : '#F0F5FF', outline: 'none', border: 'none', height: '45px', borderRadius: '32px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><p style={{fontSize:'14px'}}>Login</p></button>
+                        <button onClick={loginfunc} style={{ width: '38%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgba(255, 255, 255, 0.5)" : '#F0F5FF', outline: 'none', border: 'none', height: '45px', borderRadius: '32px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><p style={{fontSize:'14px'}}>Login</p></button>
                         {/* <Button onClick={loginfunc} variant="contained" style={{ textTransform: 'lowercase', width: '195px', height: '42px', fontFamily: 'Comic Neue', color: 'white', fontSize: '15px', backgroundColor: '#2196f3' }}>Login</Button> */}
                     </div>
                 </div>

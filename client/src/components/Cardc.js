@@ -67,12 +67,12 @@ export const Cardc = (props) => {
   return (
     <div ref={ref}>
       <Box className='card' sx={{ border: 1, borderColor: 'divider' }} style={{ width: '234px', height: '150px', borderRadius: '5px', display: 'flex', flexDirection: 'column', marginRight: '13px', marginTop: '19px', overflow: 'hidden', position: 'relative' }}>
-        <a href={`${props.link}`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <div href={props.url} className='card' style={{ position: 'relative', background: `url(${props.url})`, overflow: 'hidden', height: '82.5%', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <a href={`${props.link}`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit',height:'inherit' }}>
+          <div href={props.url} className='card' style={{ position: 'relative', background: `url(${props.url})`, overflow: 'hidden', height: '74%', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             {
               (props.type === 'image/png' || props.type === 'image/jpeg' || props.type === 'image/jpg') ? <>
                 <img src={props.img} alt="" style={{ width: '100%' }} />
-              </> : <><img src={context.dark ? altimg1 : altimg} alt="" style={{ width: '100%', }} /></>
+              </> : <><img src={context.dark ? altimg1 : altimg} alt="" style={{ width: '100%',marginBottom:'-25px'}} /></>
             }
           </div>
         </a>
@@ -90,7 +90,7 @@ export const Cardc = (props) => {
           <MenuItem onClick={handleDetele} sx={{ fontFamily: 'Roboto Flex', }}><DeleteOutlineIcon sx={{ width: '20px', height: '19px', marginRight: '6px', color: 'red' }} /><p>Remove</p></MenuItem>
         </Menu>
         <a href={`${props.link}`} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
-          <div className='folder' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '234px', height: '39px', marginRight: '13px', position: 'absolute', bottom: '0' }}>
+          <div className='folder' style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', width: '234px', height: '39px', marginRight: '13px', position: 'absolute', bottom: '0',backgroundColor:'inherit',zIndex:'55' }}>
             {
               (props.type === 'image/png' || props.type === 'image/jpeg' || props.type === 'image/jpg') ?
                 <ImageIcon style={{ width: '20px', marginLeft: '9px' }} /> : <>
