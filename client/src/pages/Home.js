@@ -6,6 +6,9 @@ import { AppContext } from '../App'
 import axios from 'axios'
 import { url } from '../BaseUrl'
 import { useParams, useSearchParams } from 'react-router-dom'
+import { ListFile } from '../components/ListFile'
+import { Table, TableCell, TableContainer, TableHead, TableRow } from '@mui/material'
+import { ListFolder } from '../components/ListFolder'
 
 
 export const Home = () => {
@@ -16,6 +19,7 @@ export const Home = () => {
   const params = useParams()
   const [home, sethome] = useState(true)
   let [searchParams] = useSearchParams();
+  const [grid, setGrid] = useState(true)
   useEffect(() => {
     const { page } = params
     if (page === 'mydrive') {
@@ -50,50 +54,89 @@ export const Home = () => {
 
   return (
     <div className="home" style={{ width: '100%', marginLeft: '2vw' }}>
-      <Selection value={params.page} />
-      <div className="grid">
+      <Selection setGrid={setGrid} grid={grid} value={params.page} />
+      {
+        grid ? <div className="grid">
+          <div className="files">
+            {
+              (home && folders && folders.length !== 0) ?
+                <p style={{ marginBottom: '5px', marginTop: '35px', fontSize: '14px' }}>Folders</p> : <></>
+            }
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '9px' }}>
+              {
+                home && folders && folders.map((item) => {
+                  return <Folderc key={item._id} name={item.Name} id={item.Folderid} />
+                })
+              }
+            </div>
+          </div>
+          <div className="files">
+            {
+              files?.length !== 0 ?
+                <p style={{ marginBottom: '5px', marginTop: '35px', fontSize: '14px' }}>Files</p> : <></>
+            }
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '-15px' }}>
+              {
+                (files && files.length !== 0) ? files.map(item => {
+                  return item !== null ?
+                    <Cardc
+                      key={item.fileid}
+                      name={item.filename}
+                      img={item.storageLink}
+                      id={item.fileid}
+                      link={item.storageLink}
+                      type={item.filetype}
+                      star={item.starred}
+                      trash={item.trash}
+                      handleRemoveFileCard={handleRemoveFileCard}
+                    />
 
-        <div className="files">
-          {
-            (home && folders && folders.length !== 0) ?
-              <p style={{ marginBottom: '5px', marginTop: '35px', fontSize: '14px' }}>Folders</p> : <></>
-          }
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '9px' }}>
+                    : <></>
+                }) : <></>
+              }
+            </div>
+          </div>
+        </div> : <div className='list' style={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+          <TableContainer style={{ width: '100%' }}>
+            <Table style={{ width: '100%' }} aria-label="simple table"></Table>
+            <TableHead>
+              <TableRow>
+                <TableCell style={{ width: '90%' }} >Name</TableCell>
+                <TableCell align="right" style={{ fontSize: '12px', width: '10%' }}>Last Modified</TableCell>
+                <TableCell align="right" style={{ fontSize: '12px', width: '10%' }}> Type</TableCell>
+                <TableCell align="right" style={{ fontSize: '12px', width: '10%' }}> - </TableCell>
+              </TableRow>
+            </TableHead>
             {
               home && folders && folders.map((item) => {
-                return <Folderc key={item._id} name={item.Name} id={item.Folderid} />
+                return <ListFolder key={item._id} name={item.Name} id={item.Folderid} />
               })
             }
-          </div>
-        </div>
-        <div className="files">
-          {
-            files?.length !== 0 ?
-              <p style={{ marginBottom: '5px', marginTop: '35px', fontSize: '14px' }}>Files</p> : <></>
-          }
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '-15px' }}>
             {
-              (files && files.length !== 0) ? files.map(item => {
-                return item !== null ?
-                  <Cardc
-                    key={item.fileid}
-                    name={item.filename}
-                    img={item.storageLink}
-                    id={item.fileid}
-                    link={item.storageLink}
-                    type={item.filetype}
-                    star={item.starred}
-                    trash={item.trash}
-                    handleRemoveFileCard={handleRemoveFileCard}
-                  /> : <></>
-              }) : <></>
+                (files && files.length !== 0) ? files.map(item => {
+                  return item !== null ?
+                <ListFile
+                  key={item.fileid}
+                  name={item.filename}
+                  img={item.storageLink}
+                  id={item.fileid}
+                  link={item.storageLink}
+                  type={item.filetype}
+                  star={item.starred}
+                  trash={item.trash}
+                  timstamp={item.timstamp}
+                  handleRemoveFileCard={handleRemoveFileCard}
+                />
+                : <></>
+                }) : <></>
             }
-          </div>
+          </TableContainer>
         </div>
-      </div>
+      }
+
       {
         (files?.length === 0 && folders?.length === 0) ?
-          <p style={{ margin: 'auto', width: 'fit-content', marginTop: '5vh', fontSize: '16px' }}>Nothing to see here</p> : <></>
+          <p style={{ margin: 'auto', width: 'fit-content', marginTop: '5vh', fontSize: '13.75px' }}>Nothing to see here</p> : <></>
       }
 
     </div>

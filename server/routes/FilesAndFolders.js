@@ -109,4 +109,11 @@ router.put('/trashhandle', async (req, res) => {
     }
 })
 
+router.post('/search', async (req, res) => {
+    const { query } = req.body
+    const files=await FileModel.find({ filename: {$regex:new RegExp(query.toLowerCase())} })
+    const folders=await FolderModel.find({ Name: {$regex:new RegExp(query.toLowerCase())} })
+    res.send({files,folders})
+})
+
 module.exports = router
