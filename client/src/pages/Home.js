@@ -35,7 +35,22 @@ export const Home = () => {
         .catch(function (error) {
           console.log(error);
         });
-    } else {
+    } else if (page === 'search') {
+      sethome(false)
+      const urlquery = searchParams.get('q')
+      console.log(urlquery)
+      // context.setCurrentFolder(urlquery ? urlquery : context.mainFolder)
+      // axios.get(`${url}/ff/${urlquery ? urlquery : context.mainFolder}`)
+      //   .then(function (response) {
+      //     setFiles(response.data.files)
+      //     setFolders(response.data.folders)
+      //     console.log(response.data);
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
+    }
+    else {
       sethome(false)
       axios.get(`${url}/ff/${page}/${context.auth.uid}`)
         .then(function (response) {
@@ -113,22 +128,22 @@ export const Home = () => {
               })
             }
             {
-                (files && files.length !== 0) ? files.map(item => {
-                  return item !== null ?
-                <ListFile
-                  key={item.fileid}
-                  name={item.filename}
-                  img={item.storageLink}
-                  id={item.fileid}
-                  link={item.storageLink}
-                  type={item.filetype}
-                  star={item.starred}
-                  trash={item.trash}
-                  timstamp={item.timstamp}
-                  handleRemoveFileCard={handleRemoveFileCard}
-                />
-                : <></>
-                }) : <></>
+              (files && files.length !== 0) ? files.map(item => {
+                return item !== null ?
+                  <ListFile
+                    key={item.fileid}
+                    name={item.filename}
+                    img={item.storageLink}
+                    id={item.fileid}
+                    link={item.storageLink}
+                    type={item.filetype}
+                    star={item.starred}
+                    trash={item.trash}
+                    timstamp={item.timstamp}
+                    handleRemoveFileCard={handleRemoveFileCard}
+                  />
+                  : <></>
+              }) : <></>
             }
           </TableContainer>
         </div>
