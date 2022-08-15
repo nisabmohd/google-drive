@@ -20,6 +20,15 @@ export const Home = () => {
   const [home, sethome] = useState(true)
   let [searchParams] = useSearchParams();
   const [grid, setGrid] = useState(true)
+
+  useEffect(() => {
+    if (localStorage.getItem('grid')) {
+      if (localStorage.getItem('grid') === 'false') {
+        setGrid(false);
+      } else setGrid(true)
+    }
+  }, [])
+
   useEffect(() => {
     const { page } = params
     if (page === 'mydrive') {
@@ -36,19 +45,19 @@ export const Home = () => {
           console.log(error);
         });
     } else if (page === 'search') {
-      sethome(false)
+      sethome(true)
       const urlquery = searchParams.get('q')
       console.log(urlquery)
-      // context.setCurrentFolder(urlquery ? urlquery : context.mainFolder)
-      // axios.get(`${url}/ff/${urlquery ? urlquery : context.mainFolder}`)
-      //   .then(function (response) {
-      //     setFiles(response.data.files)
-      //     setFolders(response.data.folders)
-      //     console.log(response.data);
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
+      axios.post(`${url}/ff/search`, {
+        query: urlquery
+      })
+        .then(function (response) {
+          setFiles(response.data.files)
+          setFolders(response.data.folders)
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
     else {
       sethome(false)
@@ -67,17 +76,23 @@ export const Home = () => {
     setFiles(files.filter(item => item.fileid !== fileid));
   }
 
+  const handleGrid = () => {
+    setGrid(!grid)
+    localStorage.setItem('grid', `${!grid}`)
+  }
+
+
   return (
     <div className="home" style={{ width: '100%', marginLeft: '2vw' }}>
-      <Selection setGrid={setGrid} grid={grid} value={params.page} />
+      <Selection setGrid={handleGrid} grid={grid} value={params.page} />
       {
-        grid ? <div className="grid">
-          <div className="files">
+        grid ? <div className="gridbox">
+          <div className="files" >
             {
               (home && folders && folders.length !== 0) ?
-                <p style={{ marginBottom: '5px', marginTop: '35px', fontSize: '14px' }}>Folders</p> : <></>
+                <p style={{ marginBottom: '20px', marginTop: '35px', fontSize: '14px' }}>Folders</p> : <></>
             }
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '9px' }}>
+            <div className='grid'>
               {
                 home && folders && folders.map((item) => {
                   return <Folderc key={item._id} name={item.Name} id={item.Folderid} />
@@ -90,7 +105,7 @@ export const Home = () => {
               files?.length !== 0 ?
                 <p style={{ marginBottom: '5px', marginTop: '35px', fontSize: '14px' }}>Files</p> : <></>
             }
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,1fr)', marginBottom: '15px', marginTop: '-15px' }}>
+            <div className='grid'>
               {
                 (files && files.length !== 0) ? files.map(item => {
                   return item !== null ?

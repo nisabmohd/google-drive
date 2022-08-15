@@ -9,7 +9,7 @@ export const Selection = (props) => {
     <Box className='selection' sx={{ borderBottom: 0.5, borderColor: 'divider' }} style={{ width: "100%", height: '59px', display: 'flex', flexDirection: 'row', alignItems: 'center', marginBottom: '19px', textTransform: 'capitalize' }}>{props.value}
       {
         !props.grid ?
-          <GridViewIcon onClick={() => props.setGrid(!props.grid)} style={{ marginLeft: 'auto', marginRight: '19px', width: '20px', height: '22px', cursor: 'pointer' }} /> :
+          <GridViewIcon onClick={() => props.setGrid()} style={{ marginLeft: 'auto', marginRight: '19px', width: '20px', height: '22px', cursor: 'pointer' }} /> :
           <FormatListBulletedIcon onClick={() => props.setGrid(!props.grid)} style={{ marginLeft: 'auto', marginRight: '19px', width: '20px', height: '22px', cursor: 'pointer' }} />
       }
 

@@ -42,7 +42,7 @@ export const Leftbar = () => {
         handleClose()
     }
     return (
-        <div className='leftbar' style={{ width: '13%' }}>
+        <div className='leftbar'>
             <button onClick={handleClick} style={{ width: '45%', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: context.dark ? "rgba(255, 255, 255, 0.5)" : '#F0F5FF', outline: 'none', border: 'none', height: '39px', borderRadius: '32px', marginLeft: '22px', cursor: 'pointer', marginBottom: '17px', marginTop: '15px', color: 'inherit' }}><AddIcon style={{  width: '27px', height: '25px',marginRight: '6px', marginLeft: '-9px' }} />New</button>
             <Menu
                 id="basic-menu"
